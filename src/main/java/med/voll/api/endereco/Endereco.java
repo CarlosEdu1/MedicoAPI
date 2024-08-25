@@ -1,15 +1,17 @@
 package med.voll.api.endereco;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Embeddable
+@Embeddable//essa anotation indica que essa classe não é uma tabela no banco de dados, mas pode ser usado por uma entidade
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Endereco {
+
 
     private String logradouro;
     private String bairro;
@@ -19,8 +21,8 @@ public class Endereco {
     private String cidade;
     private String uf;
 
-    public Endereco(DadosEndereco dados) {
-        this.bairro = dados.bairro();
+    public Endereco(DadosEndereco dados) { //esse construtor recebe um parametro que é do tipo DadosEndereco, onde tem os dados imutaveis
+        this.bairro = dados.bairro();//o atributo bairro dessa classe, vai receber as regras do atributo dado que está dentro da record DadosEndereco
         this.logradouro = dados.logradouro();
         this.cep = dados.cep();
         this.numero = dados.numero();

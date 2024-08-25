@@ -7,16 +7,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.endereco.Endereco;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@Table(name = "medicos")//determina o nome da tabela dentro do banco de dados
+@Entity(name = "Medico")// Define a classe como uma entidade JPA, o que significa que ela será mapeada para uma tabela no banco de dados.
+@Getter//gera os metodos acessores dos atributos dessa classe
+@NoArgsConstructor//gera automaticamente um construtor padrao, sem parametros
+@AllArgsConstructor//gera automaticamente um construtor com todos os parametros
+@EqualsAndHashCode(of = "id")//compara se um obj que foi criado duas instancias, é o mesmo
 
 public class Medico {
 
-    @Id
+    @Id //marca o campo como chave primaria da entidade de um medico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
